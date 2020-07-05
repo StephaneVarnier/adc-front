@@ -1,0 +1,16 @@
+{ "/archiduchess/onlineGames" : 
+    { 
+        "secure" : "false" ,
+        "target"   :  " http://localhost:9999 " 
+    },
+    "/archiduchess/users" : 
+    { 
+        "secure" : "false" ,
+        "target"   :  " http://localhost:9998 " 
+    },
+    "/archiduchess/leaders" : 
+    { 
+        "secure" : "false" ,
+        "target"   :  " http://localhost:9997 " 
+    }
+}

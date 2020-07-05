@@ -1,0 +1,35 @@
+$size : 80px;
+$color_brown : #b58863;
+$color_light :  #f0d9b5;
+
+#board1 { 
+    width: 5*$size
+}
+
+.btn-secondary {
+    width : $size;
+   
+    background-color :  $color_brown;
+    color: $color_light;
+}
+
+#tmoves {
+    width : $size;
+    background-color: $color_light;
+
+}
+
+.table-striped {
+    background-color: $color_light;
+}
+
+.thead-light {
+    background-color: $color_brown ;
+}
+
+#backToUser {
+    margin-left : 29rem;
+    margin-top : 1em;
+    
+
+}
