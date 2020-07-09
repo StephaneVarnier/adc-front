@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ChampionsService {
 
-  URL_CHAMPIONS = "https://adc-leaderboard.herokuapp.com/archiduchess/leaders"
+  URL_CHAMPIONS = "./archiduchess/leaders"
 
   public getChampions () : Observable<Champion[]> {
     

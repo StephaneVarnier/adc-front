@@ -12,7 +12,7 @@ import { FenStat } from '../data/fenStat';
 })
 export class GamesService {
   
-  URL_ONLINE_GAMES = "https://adc-online-games.herokuapp.com/archiduchess/onlineGames";
+  URL_ONLINE_GAMES = "./archiduchess/onlineGames";
   URL_STATS =   "./archiduchess/fen-list-stats"
 
   public getGamesByOpeningAndUsername (opening : string, username : string) : Observable<Game[]> {
