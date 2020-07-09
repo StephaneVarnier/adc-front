@@ -10,7 +10,7 @@ import { from, forkJoin } from 'rxjs';
 import { ChampionsService } from '../common/services/champions.service';
 import { StatisticsService } from '../common/services/statistics.service';
 import { Champion } from '../common/data/champion';
-import { SanStat } from '../common/data/SanStat';
+import { SanStat } from '../common/data/sanStat';
 
 
 declare var ChessBoard: any;
