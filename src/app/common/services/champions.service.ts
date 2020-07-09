@@ -3,13 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Champion } from '../data/champion';
 import { Observable } from 'rxjs';
 
+
+const BASE_URL_LEADERS = "https://adc-leaderboard.herokuapp.com"
+
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class ChampionsService {
 
-  BASE_URL = "https://adc-leaderboard.herokuapp.com"
-  URL_CHAMPIONS = this.BASE_URL+"/archiduchess/leaders"
+  
+  URL_CHAMPIONS = BASE_URL_LEADERS+"/archiduchess/leaders"
 
   public getChampions () : Observable<Champion[]> {
     
