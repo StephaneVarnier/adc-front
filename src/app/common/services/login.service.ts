@@ -12,7 +12,7 @@ export class LoginService {
 
   private _headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-  url = "./archiduchess/users";
+  url = "https://adc-users.herokuapp.com/archiduchess/users";
 
   public getUser(login: Login): Observable<User> {
     let AuthentificationUrl : string = this.url+"/"+login.username ; 
