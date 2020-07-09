@@ -110,7 +110,8 @@
              
             ],
             "scripts": [
-             "node_modules/jquery/dist/jquery.min.js"
+             "node_modules/jquery/dist/jquery.min.js",
+             "./node_modules/@chrisoakman/chessboardjs/css/chessboard-1.0.0.css"
             ]
           }
         },

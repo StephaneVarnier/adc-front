@@ -22,7 +22,7 @@
     "@angular/platform-browser": "~9.1.9",
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
-    "@chrisoakman/chessboardjs": "file:../chessboardjs-1.0.0",
+    "@chrisoakman/chessboardjs": "~1.0.0",
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
     "@types/jquery": "^3.3.38",
     "@webcomponents/webcomponentsjs": "^2.4.3",
