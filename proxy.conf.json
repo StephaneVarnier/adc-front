@@ -1,16 +1,16 @@
 { "/archiduchess/onlineGames" : 
     { 
         "secure" : "false" ,
-        "target"   :  " http://localhost:9999 " 
+        "target"   :  " https://adc-online-games.herokuapp.com/ " 
     },
     "/archiduchess/users" : 
     { 
         "secure" : "false" ,
-        "target"   :  " http://localhost:9998 " 
+        "target"   :  " https://adc-users.herokuapp.com/ " 
     },
     "/archiduchess/leaders" : 
     { 
         "secure" : "false" ,
-        "target"   :  " http://localhost:9997 " 
+        "target"   :  " https://adc-leaderboard.herokuapp.com/ " 
     }
 }
