@@ -7,12 +7,14 @@ import { Game } from '../data/game';
 import { HttpClientModule } from '@angular/common/http';
 import { FenStat } from '../data/fenStat';
 
+const BASE_URL_GAMES = "https://adc-online-games.herokuapp.com"
+
 @Injectable({
   providedIn: 'root'
 })
 export class GamesService {
-  
-  URL_ONLINE_GAMES = "./archiduchess/onlineGames";
+    
+  URL_ONLINE_GAMES = BASE_URL_GAMES+"/archiduchess/onlineGames";
   URL_STATS =   "./archiduchess/fen-list-stats"
 
   public getGamesByOpeningAndUsername (opening : string, username : string) : Observable<Game[]> {
