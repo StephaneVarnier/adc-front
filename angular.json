@@ -25,19 +25,20 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/img/chesspieces/wikipedia"
             ],
             "styles": [
               "src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/font-awesome/css/font-awesome.min.css",
-              "./node_modules/@chrisoakman/chessboardjs/css/chessboard-1.0.0.css"
+              "./node_modules/@chrisoakman/chessboardjs/dist/chessboard-1.0.0.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.js",
               "./node_modules/popper.js/dist/umd/popper.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "./node_modules/@chrisoakman/chessboardjs/js/chessboard-1.0.0.js"
+              "./node_modules/@chrisoakman/chessboardjs/dist/chessboard-1.0.0.js"
             ]
           },
           "configurations": {
@@ -106,11 +107,13 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/@chrisoakman/chessboardjs/dist/chessboard-1.0.0.css"
              
             ],
             "scripts": [
-             "node_modules/jquery/dist/jquery.min.js"
+             "node_modules/jquery/dist/jquery.min.js",
+             "./node_modules/@chrisoakman/chessboardjs/dist/chessboard-1.0.0.js"
             ]
           }
         },

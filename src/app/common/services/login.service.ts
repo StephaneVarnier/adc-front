@@ -5,14 +5,21 @@ import { Observable } from 'rxjs';
 import { User } from '../data/user';
 import { tap } from 'rxjs/operators';
 
+
+const BASE_URL_USERS = "https://adc-users.herokuapp.com"
+
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class LoginService {
 
   private _headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-  url = "./archiduchess/users";
+  
+  url = BASE_URL_USERS + "/archiduchess/users";
 
   public getUser(login: Login): Observable<User> {
     let AuthentificationUrl : string = this.url+"/"+login.username ; 

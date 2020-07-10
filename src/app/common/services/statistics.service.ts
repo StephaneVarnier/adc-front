@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GamesService } from './games.service';
 import { ChampionsService } from './champions.service';
-import { Champion } from '../data/champion';
+//import { Champion } from '../data/champion';
 import { Observable } from 'rxjs';
-import { SanStat } from '../data/SanStat';
+//import { SanStat } from '../data/SanStat';
 
 const URL_ONLINE_GAMES = "./archiduchess/onlineGames";
 
