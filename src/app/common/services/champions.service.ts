@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 
 const BASE_URL_LEADERS = "https://adc-leaderboard.herokuapp.com"
+//const BASE_URL_LEADERS = "http://localhost:9997"
 
 @Injectable({
   providedIn: 'root'
