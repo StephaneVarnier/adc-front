@@ -30,9 +30,15 @@ export class RegisterComponent implements OnInit {
         console.log(this.registeredUsers)
         if (!this.registeredUsers.some((user) => (user == this.user.username))) 
         {
-          console.log("registering : " + this.user.username)
-          this.loginService.postUser(this.user).subscribe( () => console.log("done"))
+            this.loginService.postUser(this.user).subscribe( 
+              () => {
+                this.message = "New user : " + this.user.username + " has been registered"
+                sessionStorage.setItem("user", this.user.username)
+                this.router.navigate(['games'])
+              }
+            )
         }
+        else this.message = "The user " + this.user.username + " has already been registered"
       }
     )
 
