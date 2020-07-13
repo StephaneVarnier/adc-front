@@ -331,4 +331,26 @@ export class GamesComponent implements OnInit {
 
   }
 
+  // onWhiteSelectCell(i : number) {
+  //   console.log(2*i +  " --> " + this.fens[2*i])
+    
+  // }
+
+  // onBlackSelectCell(i : number) {
+  //   console.log(2*i+1 +  " --> " + this.fens[2*i+1])
+  // }
+
+  onSelectCell(i : number) {
+    
+    if (this.moveNumber >= 0) this.shadeCell(COLOR_NORMAL, "normal", this.moveNumber);
+    this.moveNumber = i;
+    this.shadeCell(COLOR_MOVE, "bold", this.moveNumber);
+
+    this.myBoard = ChessBoard(
+      'board1', { orientation: this.orientation, position: this.fens[this.moveNumber + 1] }
+    );
+  }
+
+  
+
 }
