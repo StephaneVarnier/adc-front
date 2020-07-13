@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
       (error) => { console.log(error)}
       );
   }
+
+  onSignUp() {
+    this.router.navigate(['register'])
+  }
   
   constructor(private router : Router, public loginService : LoginService) { }
 

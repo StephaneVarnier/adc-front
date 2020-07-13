@@ -4,6 +4,7 @@ import { GamesComponent} from './games/games.component';
 import { OptionsComponent } from './options/options.component';
 import { LoginComponent } from './login/login.component';
 import { ChampionsComponent } from './champions/champions.component';
+import { RegisterComponent } from './login/register/register.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: 'options', component: OptionsComponent },
   { path : '', redirectTo:'/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'champions', component: ChampionsComponent }
+  { path: 'champions', component: ChampionsComponent },
+  { path: 'register', component: RegisterComponent }
+  
  
 ];
 
