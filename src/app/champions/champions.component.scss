@@ -1,7 +1,7 @@
+@import "../common/scss/variables";
+
 .card-columns {
-   
-      column-count: 4;
-   
+    column-count: 4;
 }
 
 
@@ -9,3 +9,38 @@
  padding-left: 4em;
 }
 
+.card {
+      background-color : $card_background_color;
+  }
+  
+  .card-header {
+      
+      background-color: $card_header_background_color !important;
+  }
+
+  @media screen and (max-width: 800px) {
+    
+    .card-columns {
+        column-count: 2;
+    }
+    
+    
+}
+
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+    
+    .card-columns {
+        column-count: 3;
+    }
+    
+    
+}
+
+@media screen and (min-width: 1201px) {
+    
+    .card-columns {
+        column-count: 4;
+    }
+    
+    
+}

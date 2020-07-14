@@ -1,3 +1,5 @@
+@import "../login.component";
+
 #message 
 {
     color : red; font-weight: bold ;
@@ -13,6 +15,7 @@ label
 {
     width: 120px;
     margin-left: 15px;
+    background-color: $button_back_color;
    
 }
 

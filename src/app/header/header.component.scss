@@ -1,7 +1,18 @@
+@import "../common/scss/variables";
+
 #myHeader { 
     text-align: center; 
     font-weight: bold; 
     font-size:16pt;
-    color:blue; 
-    background-color: orange;
+    color: $title_color !important; 
+    background-color: $background_color !important;
+ }
+
+ .link {
+    color : $links_color;
+ }
+
+ h1 {
+    font-weight: $title_font_weight;
+    font-family: $title_font_family;
  }

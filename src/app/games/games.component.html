@@ -1,45 +1,54 @@
-<div class="row">
-    <div class="col-sm-4">
-        <div class="card">
-            <div class="card-header bg-primary text-light">Openings</div>
-            <div class="card-body">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4" >
+            <div class="card">
+                <div class="card-header bg-primary text-light"><br/>Openings</div>
+                <div class="card-body">
 
-                <select [(ngModel)]="selectedOpening" size="8" style="width:100%" (click)="onChangeSelectedOpening()">
-                    <option *ngFor="let opening of openings" [ngValue]="opening">{{opening}}</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header bg-primary text-light">{{currentPlayer}}'s games</div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <select [(ngModel)]="selectedGame" size="8" style="width:100%" (change)="onChangeSelectedGame()"
-                            (click)="onChangeSelectedGame()">
-                            <option *ngFor="let gam of games" [ngValue]="gam">{{gam.playerWhite}} - {{gam.playerBlack}}
-                                -
-                                {{gam.resultat}}</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        {{openingGamesNumber}} games
-                        <br />
-                        <br />
-                        {{username}} 's efficiency {{openingEfficiency | percent:'1.0-2'}}
-                    </div>
-
+                    <select [(ngModel)]="selectedOpening"  size="8" style="width:100%" class="mySelect"
+                        (click)="onChangeSelectedOpening()">
+                        <option *ngFor="let opening of openings" [ngValue]="opening" class="myOption">{{opening}}
+                        </option>
+                    </select>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header bg-primary text-light"><br/>{{currentPlayer}}'s games</div>
+                <div class="card-body">
+                    <!-- <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-8"> -->
+                    <select [(ngModel)]="selectedGame"  size="8" style="width:100%" (change)="onChangeSelectedGame()"
+                        (click)="onChangeSelectedGame()" class="mySelect">
+                        <option *ngFor="let gam of games" [ngValue]="gam" class="myOption">
+                            {{gam.playerWhite}} -
+                            {{gam.playerBlack}}
+                            -
+                            {{gam.resultat}}</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                    {{openingGamesNumber}} games
+                    <br />
+
+                    {{username}} 's efficiency {{openingEfficiency | percent:'1.0-2'}}
+                </div>
+
+                <!-- </div> -->
+                <!-- </div>
+                </div> -->
+            </div>
+
+
+            <button *ngIf="showBack" id="backToUser" class="btn btn-primary" (click)="backToUser()">Back to my
+                games</button>
+                <br/>
+                <br/>
         </div>
 
 
-        <button *ngIf="showBack" id="backToUser" class="btn btn-primary" (click)="backToUser()">Back to my
-            games</button>
-    </div>
-
-
-    <div class="col-7">
+        <div class="col-lg-8">
         <div class="card">
             <div class="card-header bg-primary text-light">
                 {{gameLabel}} <br />
@@ -48,54 +57,53 @@
 
             </div>
             <div class="card-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div>
 
-                <div class="row">
-                    <div class="col-sm-5">
+                            <div id="board1"></div>
+                            <div class="btn-group">
+                                <button id="startBtn" class="btn btn-secondary fa fa-angle-double-left"
+                                    (click)="startGame()"></button>
+                                <button id="withdrawBtn" class="btn btn-secondary fa fa-chevron-left"
+                                    (click)="withdrawGame()"></button>
+                                <button id="reverseBtn" class="btn btn-secondary fa fa-refresh"
+                                    (click)="reverseColors()"></button>
+                                <button id="advanceBtn" class="btn btn-secondary fa fa-chevron-right"
+                                    (click)="advanceGame()"></button>
+                                <button id="lastMoveBtn" class="btn btn-secondary fa fa-angle-double-right"
+                                    (click)="lastMoveGame()"></button>
+                            </div>
 
-                        <div id="board1"></div>
-                        <div class="btn-group">
-                            <button id="startBtn" class="btn btn-secondary fa fa-angle-double-left"
-                                (click)="startGame()"></button>
-                            <button id="withdrawBtn" class="btn btn-secondary fa fa-chevron-left"
-                                (click)="withdrawGame()"></button>
-                            <button id="reverseBtn" class="btn btn-secondary fa fa-refresh"
-                                (click)="reverseColors()"></button>
-                            <button id="advanceBtn" class="btn btn-secondary fa fa-chevron-right"
-                                (click)="advanceGame()"></button>
-                            <button id="lastMoveBtn" class="btn btn-secondary fa fa-angle-double-right"
-                                (click)="lastMoveGame()"></button>
+                            <br /><br />
+                            Number of your games with this position : {{playedGamesByPosition}}
+                            <br />
+                            Your efficiency with this position : {{points | percent:'1.0-2' }}
+                            <br />
+
                         </div>
 
-                        <br /><br />
-                        Number of your games with this position : {{playedGamesByPosition}}
-                        <br />
-                        Your efficiency with this position : {{points | percent:'1.0-2' }}
-                        <br />
+                        <div id="divtmoves">
+                            <table id="tmoves" class="table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="thmoves">White</th>
+                                        <th class="thmoves">Black</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let fm of fullMoves; index as i">
+                                    <tr id="trmoves">
 
-                        <!-- <br />
-                <br />
-                {{gamePGN}} -->
-                    </div>
+                                        <td class="cell" id="{{'white-'+i}}" (click)="onSelectCell(2*i)">{{ fm.white }}
+                                        </td>
+                                        <td class="cell" id="{{'black-'+i}}" (click)="onSelectCell(2*i+1)">
+                                            {{ fm.black }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                    <div id="divtmoves" class="col-sm-2">
-                        <table id="tmoves" class="table-bordered">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>White</th>
-                                    <th>Black</th>
-                                </tr>
-                            </thead>
-                            <tbody *ngFor="let fm of fullMoves; index as i">
-                                <tr id="trmoves">
-
-                                    <td class="cell" id="{{'white-'+i}}" (click)="onSelectCell(2*i)" >{{ fm.white }}</td>
-                                    <td class="cell" id="{{'black-'+i}}" (click)="onSelectCell(2*i+1)">{{ fm.black }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- <div class="col-sm-2">
+                        <!-- <div class="col-sm-2">
                         <table id="sanStats" class="table-bordered">
                             <thead class="thead-light">
                                 <tr>
@@ -114,10 +122,12 @@
 
                     </div> -->
 
-                    <div *NgIf="selected"> {{selectedGame.opening}}</div>
+                        <div *NgIf="selected"> {{selectedGame.opening}}</div>
+                    </div>
                 </div>
             </div>
         </div>
 
+        </div>
     </div>
 </div>

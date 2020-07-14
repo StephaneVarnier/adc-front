@@ -1,3 +1,5 @@
+@import "../common/scss/variables";
+
 #message 
 {
     color : red; font-weight: bold ;
@@ -6,13 +8,14 @@
 label 
 {
     font-weight: bold ;
-    padding-left: 2em;;
+    padding-left: 8em;;
 }
 
 .btn 
 {
     width: 120px;
     margin-left: 15px;
+    background-color: $button_back_color !important;
 
 }
 
@@ -20,4 +23,9 @@ label
 { 
     font-style: italic;
     font-weight:normal
+}
+
+input 
+{
+    
 }
