@@ -58,7 +58,7 @@ export class GamesService {
     return this.http.get<string[]>(urlOpenings)
   }
 
-  public getByUsername
+  //public getByUsername
 
   constructor(private http : HttpClient) { }
 }

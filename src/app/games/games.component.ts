@@ -15,7 +15,7 @@ import { SanStat } from '../common/data/sanStat';
 
 declare var ChessBoard: any;
 
-const COLOR_NORMAL = "#f0d9b5"
+const COLOR_NORMAL = "#90E0EF"
 const COLOR_MOVE = "orange"
 const ALL_OPENINGS = "- - -"
 const DRAW = "1/2-1/2"

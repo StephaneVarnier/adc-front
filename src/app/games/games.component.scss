@@ -5,7 +5,19 @@
     
 #board1 { 
     width: 5*$board_size
+
+    
 }
+
+.white-1e1d7 {
+    background-color: $color_light_squares !important;
+    color: $color_dark_squares !important;
+  }
+  
+.black-3c85d {
+    background-color: $color_dark_squares !important;
+    color: $color_light_squares !important;
+  }
 
 .btn-secondary {
     width : $board_size;

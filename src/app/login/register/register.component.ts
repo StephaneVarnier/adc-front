@@ -3,6 +3,7 @@ import { Login } from 'src/app/common/data/login';
 import { LoginService } from 'src/app/common/services/login.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/common/data/user';
+import { FetchService } from 'src/app/common/services/fetch.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   message: String = "";
   registeredUsers = [];
 
-  constructor(private router: Router, public loginService: LoginService) { }
+  constructor(private router: Router, public loginService: LoginService, public fetchService: FetchService) { }
 
   ngOnInit(): void {
   }
@@ -29,8 +30,11 @@ export class RegisterComponent implements OnInit {
         this.registeredUsers = user
         console.log(this.registeredUsers)
         if (!this.registeredUsers.some((user) => (user == this.user.username))) 
-        {
-            this.loginService.postUser(this.user).subscribe( 
+        { 
+          this.fetchService.fetchUserGames(this.user.username).subscribe((res)=>console.log(res))
+          console.log("downloading "+this.user.username+"'s games") 
+          
+          this.loginService.postUser(this.user).subscribe( 
               () => {
                 this.message = "New user : " + this.user.username + " has been registered"
                 sessionStorage.setItem("user", this.user.username)

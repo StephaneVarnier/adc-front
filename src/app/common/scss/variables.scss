@@ -1,13 +1,26 @@
-$color_dark_squares : #b58863;
-$color_light_squares :  #f0d9b5;
+// $color_dark_squares : #b58863;
+// $color_light_squares :  #f0d9b5;
 
-$background_color : #F2BD91;
+// $background_color : #F2BD91;
 
-$title_color : #9A559E;
+// $title_color : #9A559E;
+// $links_color : $title_color;
+
+// $card_header_background_color : #9A559E;
+// $card_background_color : white;
+
+
+$color_dark_squares : #0077B6;
+$color_light_squares :  #90E0EF;
+
+$background_color : #0096C7;
+
+$title_color : #023E8A;
 $links_color : $title_color;
 
-$card_header_background_color : #9A559E;
+$card_header_background_color : $title_color;
 $card_background_color : white;
+
 
 $button_back_color : $card_header_background_color ;
 
