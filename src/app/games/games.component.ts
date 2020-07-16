@@ -44,7 +44,8 @@ export class GamesComponent implements OnInit {
   gameId: number;
   moveNumber: number;
   orientation: string = "white";
-  playedGamesByPosition: number;
+  playedGamesByPosition: number = 0;
+  playedGamesByPositionExist : boolean;
   points: number;
   openingEfficiency : number; 
   openingGamesNumber : number; 
@@ -84,6 +85,7 @@ export class GamesComponent implements OnInit {
 
   onChangeSelectedGame() {
     this.selected = true;
+    this.playedGamesByPositionExist = false;
     let dateTab = this.selectedGame.date.split(".");
     
     this.gameDate = new Date(parseInt(dateTab[0],10), parseInt(dateTab[1],10)-1, Number(dateTab[2])).toLocaleDateString()
@@ -227,7 +229,8 @@ export class GamesComponent implements OnInit {
     if (this.moveNumber >= -1) {
     
       this.playedGamesByPosition = this.stats[this.moveNumber + 1].playedGames
-      console.log(this.playedGamesByPosition)
+      this.playedGamesByPositionExist = (this.playedGamesByPosition > 0)
+      
       this.points = this.stats[this.moveNumber + 1].points / 100
       console.log(this.points)
 

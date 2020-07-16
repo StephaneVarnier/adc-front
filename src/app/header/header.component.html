@@ -4,14 +4,27 @@
 >
     <div form-group>
         <div ><h1>Archi du Chess</h1></div>
-        <div >
+        <div *ngIf=userLogged>
+           
+            <a class="link" [routerLink]="['/games']"> Games</a> &nbsp;
+            <a class="link" [routerLink]="['/champions']"> Champions</a> &nbsp;
+            <a class="link" [routerLink]="['/login']"> Sign out</a> &nbsp;
+            <!-- <a class="link" [routerLink]="['/options']"> Options</a> &nbsp; -->
+            
+           
+        </div>
+
+        <div *ngIf=!userLogged>
            
             <a class="link" [routerLink]="['/games']"> Games</a> &nbsp;
             <a class="link" [routerLink]="['/champions']"> Champions</a> &nbsp;
             <a class="link" [routerLink]="['/login']"> Login</a> &nbsp;
-            <a class="link" [routerLink]="['/options']"> Options</a> &nbsp;
+            <!-- <a class="link" [routerLink]="['/options']"> Options</a> &nbsp; -->
             
            
         </div>
+
+
+
     </div>
 </div>

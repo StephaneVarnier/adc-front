@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Login } from '../data/login';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../data/user';
 import { tap, map, flatMap, toArray } from 'rxjs/operators';
 
@@ -22,6 +22,8 @@ export class LoginService {
 
   url = BASE_URL_USERS + "/archiduchess/users";
   registerUrl = this.url +"/register"
+
+  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   public getUser(login: Login): Observable<User> {
     let AuthentificationUrl : string = this.url+"/"+login.username ; 
@@ -55,11 +57,10 @@ export class LoginService {
     sessionStorage.removeItem("user");
   }
 
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
-  }
+
+  
+
+  
 
 
   constructor(private http : HttpClient) { }
