@@ -15,13 +15,6 @@ const URL_CHESS_STATS = "https://adc-chess-stats.herokuapp.com/archiduchess/stat
 })
 export class StatisticsService {
 
-  
-
-
-
-
-
-
   getStatsByUserAndGameId(user: string, gameId : string): Observable<FenStat[]> {
 
     let url: string = URL_CHESS_STATS + "/user/" + user + "/gameId/" + gameId;
