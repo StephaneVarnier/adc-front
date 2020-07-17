@@ -46,7 +46,8 @@ export class GamesComponent implements OnInit {
   orientation: string = "white";
   playedGamesByPosition: number = 0;
   playedGamesByPositionExist : boolean;
-  points: number;
+  loading : boolean;
+  efficiency: number;
   openingEfficiency : number; 
   openingGamesNumber : number; 
   username : string = "";
@@ -86,6 +87,7 @@ export class GamesComponent implements OnInit {
   onChangeSelectedGame() {
     this.selected = true;
     this.playedGamesByPositionExist = false;
+    this.loading = !this.playedGamesByPositionExist && this.username == sessionStorage.getItem("user")
     let dateTab = this.selectedGame.date.split(".");
     
     this.gameDate = new Date(parseInt(dateTab[0],10), parseInt(dateTab[1],10)-1, Number(dateTab[2])).toLocaleDateString()
@@ -114,7 +116,7 @@ export class GamesComponent implements OnInit {
         () => { this.getStats() }
       )
 
-      this.startGame();
+    this.startGame();
 
   }
 
@@ -229,20 +231,16 @@ export class GamesComponent implements OnInit {
     if (this.moveNumber >= -1) {
     
       this.playedGamesByPosition = this.stats[this.moveNumber + 1].playedGames
+      this.loading = false
       this.playedGamesByPositionExist = (this.playedGamesByPosition > 0)
       
-      this.points = this.stats[this.moveNumber + 1].points / 100
-      console.log(this.points)
-
-      console.log(this.fens[this.moveNumber + 1])
-
-      //this.getNextMovesByFen(this.fens[this.moveNumber + 1], this.champions)
-     // console.log("--> " + JSON.stringify(this.sanstats))
+      this.efficiency = this.stats[this.moveNumber + 1].efficiency 
+      
     }
   }
 
   getStats(): void {
-    this.gamesService.getMyStats(this.gameId)
+    this.statisticsService.getStatsByUserAndGameId(sessionStorage.getItem("user"), this.gameId.toString())
       .subscribe(
         (data: FenStat[]) => { this.stats = data }
       );
@@ -267,8 +265,6 @@ export class GamesComponent implements OnInit {
       for (let i = 0; i <= n; i++) {
         let fm = new FullMove(this.sans[2 * i], this.sans[2 * i + 1])
         this.fullMoves.push(fm);
-
-        //console.log (this.fullMoves[i].white + " .." + this.fullMoves[i].black)
       }
     }
   }
@@ -290,58 +286,6 @@ export class GamesComponent implements OnInit {
     this.myBoard.flip()
     this.orientation === "white" ? this.orientation = "black" : this.orientation = "white"
   }
-
-  getNextMovesByFen(fen: string, champions: Array<Champion>) {
-    
-    let observableBatch = []
-
-    for (let champion of champions) {
-      //console.log(JSON.stringify(champion))
-      observableBatch.push(this.statisticsService.getNextMovesByFenAndUsername(fen, champion.username))
-      
-    }
-
-    forkJoin(observableBatch).subscribe
-    (
-      (data: String[]) => 
-      {  
-        //console.log("data : "+JSON.stringify(data)); 
-        this.nextMoves.concat(data)
-        this.sanstats = this.getNextSanStatsByFen(fen, champions)
-      },
-      
-    )
-  
-    
-  }
-
-  getNextSanStatsByFen(fen: string, champions: Array<Champion>): SanStat[] {
-    
-    //this.getNextMovesByFen(fen, champions)
-
-    console.log("NextMoves ---------------->");
-    console.log( JSON.stringify(this.nextMoves));
-    let sanstats: Array<SanStat> = new Array<SanStat>();
-
-    let nextMovesSet = new Set(this.nextMoves)
-    for (let move of nextMovesSet) {
-      let nb: number = this.nextMoves.filter(x => x == move).length
-      sanstats.push(new SanStat(move, nb))
-
-    }
-
-    return sanstats
-
-  }
-
-  // onWhiteSelectCell(i : number) {
-  //   console.log(2*i +  " --> " + this.fens[2*i])
-    
-  // }
-
-  // onBlackSelectCell(i : number) {
-  //   console.log(2*i+1 +  " --> " + this.fens[2*i+1])
-  // }
 
   onSelectCell(i : number) {
     
