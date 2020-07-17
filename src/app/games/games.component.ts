@@ -15,7 +15,7 @@ import { SanStat } from '../common/data/sanStat';
 
 declare var ChessBoard: any;
 
-const COLOR_NORMAL = "#f0d9b5"
+const COLOR_NORMAL = "#90E0EF"
 const COLOR_MOVE = "orange"
 const ALL_OPENINGS = "- - -"
 const DRAW = "1/2-1/2"
@@ -44,7 +44,8 @@ export class GamesComponent implements OnInit {
   gameId: number;
   moveNumber: number;
   orientation: string = "white";
-  playedGamesByPosition: number;
+  playedGamesByPosition: number = 0;
+  playedGamesByPositionExist : boolean;
   points: number;
   openingEfficiency : number; 
   openingGamesNumber : number; 
@@ -84,6 +85,7 @@ export class GamesComponent implements OnInit {
 
   onChangeSelectedGame() {
     this.selected = true;
+    this.playedGamesByPositionExist = false;
     let dateTab = this.selectedGame.date.split(".");
     
     this.gameDate = new Date(parseInt(dateTab[0],10), parseInt(dateTab[1],10)-1, Number(dateTab[2])).toLocaleDateString()
@@ -227,7 +229,8 @@ export class GamesComponent implements OnInit {
     if (this.moveNumber >= -1) {
     
       this.playedGamesByPosition = this.stats[this.moveNumber + 1].playedGames
-      console.log(this.playedGamesByPosition)
+      this.playedGamesByPositionExist = (this.playedGamesByPosition > 0)
+      
       this.points = this.stats[this.moveNumber + 1].points / 100
       console.log(this.points)
 
@@ -330,5 +333,27 @@ export class GamesComponent implements OnInit {
     return sanstats
 
   }
+
+  // onWhiteSelectCell(i : number) {
+  //   console.log(2*i +  " --> " + this.fens[2*i])
+    
+  // }
+
+  // onBlackSelectCell(i : number) {
+  //   console.log(2*i+1 +  " --> " + this.fens[2*i+1])
+  // }
+
+  onSelectCell(i : number) {
+    
+    if (this.moveNumber >= 0) this.shadeCell(COLOR_NORMAL, "normal", this.moveNumber);
+    this.moveNumber = i;
+    this.shadeCell(COLOR_MOVE, "bold", this.moveNumber);
+
+    this.myBoard = ChessBoard(
+      'board1', { orientation: this.orientation, position: this.fens[this.moveNumber + 1] }
+    );
+  }
+
+  
 
 }

@@ -24,6 +24,7 @@
     "@angular/router": "~9.1.9",
     "@chrisoakman/chessboardjs": "^1.0.0",
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
+    "@tiou/chessboardjs": "^1.0.0",
     "@types/jquery": "^3.3.38",
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "bootstrap": "^4.5.0",

@@ -1,4 +1,4 @@
-@import "../common/scss/variables";
+@import "../login.component";
 
 #message 
 {
@@ -8,15 +8,15 @@
 label 
 {
     font-weight: bold ;
-    padding-left: 8em;;
+    padding-left: 2em;;
 }
 
 .btn 
 {
     width: 120px;
     margin-left: 15px;
-    background-color: $button_back_color !important;
-
+    background-color: $button_back_color;
+   
 }
 
 #registered 
@@ -24,8 +24,3 @@ label
     font-style: italic;
     font-weight:normal
 }
-
-// input 
-// {
-    
-// }

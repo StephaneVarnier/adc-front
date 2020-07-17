@@ -1,7 +1,9 @@
+@import "../common/scss/variables";
+
 #myFooter {
-    background-color: orange; 
+    background-color: $background_color !important; 
     text-align: right; 
     font-weight: bold; 
-    color : cornflowerblue; 
+    color : $title-color !important; 
     font-style: italic;
 }

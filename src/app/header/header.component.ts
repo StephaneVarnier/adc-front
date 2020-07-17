@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PreferencesService } from '../common/services/preferences.service';
+import { LoginService } from '../common/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,14 @@ import { PreferencesService } from '../common/services/preferences.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public service : PreferencesService) { }
+   userLogged : boolean 
 
-  ngOnInit(): void {
+  constructor(public service : PreferencesService, public loginService : LoginService) { 
+    this.loginService.isUserLoggedIn.subscribe( value => {this.userLogged = value})
   }
+
+ 
+  ngOnInit(): void {
+   }
 
 }

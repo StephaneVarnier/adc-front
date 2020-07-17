@@ -17,6 +17,7 @@ import { OptionsComponent } from './options/options.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ChampionsComponent } from './champions/champions.component';
+import { RegisterComponent } from './login/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ChampionsComponent } from './champions/champions.component';
     GamesComponent,
     OptionsComponent,
     LoginComponent,
-    ChampionsComponent
+    ChampionsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
