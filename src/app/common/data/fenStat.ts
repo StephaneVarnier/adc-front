@@ -8,6 +8,6 @@ export class FenStat {
     constructor(
         public fen : string,
         public playedGames : number,
-        public points : number
+        public efficiency : number
     ) {}
   }
