@@ -8,7 +8,7 @@ import { FenStat } from '../data/fenStat';
 //import { SanStat } from '../data/SanStat';
 
 
-const URL_CHESS_STATS = "http://localhost:9996/archiduchess/stats"
+const URL_CHESS_STATS = "https://adc-chess-stats.herokuapp.com/archiduchess/stats"
 
 @Injectable({
   providedIn: 'root'
