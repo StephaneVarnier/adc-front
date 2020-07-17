@@ -7,8 +7,10 @@ import { Game } from '../data/game';
 import { HttpClientModule } from '@angular/common/http';
 import { FenStat } from '../data/fenStat';
 
-//const BASE_URL_GAMES = "https://adc-online-games.herokuapp.com"
-const BASE_URL_GAMES = "http://localhost:9999"
+
+const BASE_URL_GAMES = "https://adc-online-games.herokuapp.com"
+//const BASE_URL_GAMES = "http://localhost:9999"
+
 
 @Injectable({
   providedIn: 'root'

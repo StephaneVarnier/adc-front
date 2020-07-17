@@ -6,8 +6,10 @@ import { User } from '../data/user';
 import { tap, map, flatMap, toArray } from 'rxjs/operators';
 
 
-//const BASE_URL_USERS = "https://adc-users.herokuapp.com"
-const BASE_URL_USERS = "http://localhost:9998"
+
+const BASE_URL_USERS = "https://adc-users.herokuapp.com"
+//const BASE_URL_USERS = "http://localhost:9998" 
+
 
 @Injectable({
   providedIn: 'root'
