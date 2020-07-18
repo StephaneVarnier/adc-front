@@ -105,19 +105,40 @@
 
 @media screen and (max-width: 480px) {
     
-    @include styling($board_size: 60px);
+    @include styling($board_size: 40px);
+    .card-header {
+        height: 4em; 
+    }
     
     
 }
 
-@media screen and (min-width: 481px) and (max-width: 1000px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    
+    @include styling($board_size: 60px);
+ 
+    .card-header {
+        height: 4em; 
+    }
+    
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
     
     @include styling($board_size: 80px);
     
     
 }
 
-@media screen and (min-width: 1001px) {
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    
+    @include styling($board_size: 100px);
+    
+    
+}
+
+@media screen and (min-width: 1201px) {
     
     @include styling($board_size: 120px);
     
