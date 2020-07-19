@@ -15,21 +15,17 @@ export class LoginComponent implements OnInit {
   login : Login = new Login();
   
   message : String = "";
+  
 
  
 
   doLogin() {
     this.loginService.getUser(this.login).subscribe(
       (response)=>{
-        if(response == null) {
-          this.message = this.login.username + " has not been registered yet";
-         
-          return;
-        }
-
         if (response.password === this.login.password) 
         {
           this.message = "";
+          
           this.router.navigate(['games'])
           console.log(sessionStorage.getItem("user"))
           this.loginService.isUserLoggedIn.next(true);
@@ -37,12 +33,22 @@ export class LoginComponent implements OnInit {
         }
         else {
           this.login.password = "";
+         
           this.message = WRONG_PASSWORD;
           sessionStorage.removeItem("user")
          
         }},
-      (error) => { console.log(error)}
-      );
+      (error) => { 
+        console.log(error.error.error)
+        if (error.error.error == "Bad Request") {this.message = this.login.username + " has not been registered yet"}}
+    
+       
+
+      )
+      
+      
+    
+
   }
 
   onSignUp() {

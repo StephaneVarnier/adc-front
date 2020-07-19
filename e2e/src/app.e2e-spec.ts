@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('adc-front app is running!');
+    expect(page.getTitleText()).toEqual('Archi du Chess');
   });
 
   afterEach(async () => {
