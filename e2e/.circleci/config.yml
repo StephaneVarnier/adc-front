@@ -7,7 +7,7 @@ jobs:
         docker:
             - image: circleci/node:10-browsers
                 environment:
-                    CHROME_BIN: /usr/bin/google-chrome
+                    CHROME_BIN: /usr/bin/google-chrome karma start --single-run
         steps:
             # Checkout the code from the branch into the working_directory
             - checkout
