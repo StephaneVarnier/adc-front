@@ -6,8 +6,8 @@ jobs:
         working_directory: ~/project-name
         docker:
             - image: circleci/node:10-browsers
-                env:
-                - CHROME_BIN=/usr/bin/google-chrome
+                environment:
+                - CHROME_BIN: "/usr/bin/google-chrome"
         steps:
             # Checkout the code from the branch into the working_directory
             - checkout
