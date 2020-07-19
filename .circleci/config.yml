@@ -7,7 +7,7 @@ jobs:
         docker:
             - image: circleci/node:10-browsers
               environment:
-                - CHROME_BIN: /usr/bin/google-chrome
+                - CHROME_BIN: /usr/bin/google-chrome karma start --single-run
         steps:
             # Checkout the code from the branch into the working_directory
             - checkout
@@ -36,8 +36,8 @@ jobs:
             # Test the source code
             - run:
                 name: Testing
-                command: ng test --no-watch --no-progress --browsers=ChromeHeadlessCI
+                command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
             # End to End test
             - run:
                  name: End to End Test
-                command: ng e2e --protractor -config=e2e/protractor-ci.conf.js
+                command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
