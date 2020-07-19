@@ -15,9 +15,8 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: process.env.CHROME_BIN,
-      args: ['--headless', '--no-sandbox']
-      }
+      args: [ "--headless", "--disable-gpu", "--window-size=800x600" ]
+    }
   },
   directConnect: true,
   baseUrl: 'https://adc-front.herokuapp.com/',
