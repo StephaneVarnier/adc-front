@@ -44,11 +44,5 @@ workflows:
         # the test workflow
         test_workflow:
             jobs:
-                - deploy:
-                    filters:
-                        branches:
-                            only:
-                                - develop
-                                - staging
-                                - master
+                - test
 
