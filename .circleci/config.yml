@@ -4,8 +4,6 @@ jobs:
     docker:
       - image: 'circleci/node:12-browsers'
 
-    working_directory: ~/adc-front  
-    
     steps:
       - checkout
       - run:
