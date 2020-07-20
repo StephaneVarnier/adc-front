@@ -1,6 +1,8 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+process.env.NO_PROXY = 'localhost, 0.0.0.0/4201, 0.0.0.0/9876';
+
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -23,21 +25,22 @@ module.exports = function (config) {
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
+    logLevel: config.LOG_DEBUG,
+    autoWatch: false,
     customLaunchers: {
-      ChromeHeadlessCI: {
-          base: 'ChromeHeadless',
+      'ChromeHeadless': {
+          base: 'Chrome',
           flags: [
-            '--no-sandbox',
-            '--disable-extensions',
-            '--disable-web-security',
-            '--no-proxy-server'
-        ]
+              '--headless',
+              '--disable-gpu',
+              // Without a remote debugging port, Google Chrome exits immediately.
+              '--remote-debugging-port=9222'
+          ],
+          debug: true
       }
     },
-    singleRun: false,
+    browsers: ['ChromeHeadless'],
+    concurrency: Infinity,
     restartOnFileChange: true
   });
 };
