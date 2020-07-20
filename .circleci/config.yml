@@ -1,22 +1,6 @@
 version: 2.1
-
 orbs:
   node: circleci/node@1.1.6
-  heroku: circleci/heroku@0.0.10
-
-workflows:
-  version: 2   
-  test_workflow:
-    jobs:
-      - test
-      - heroku/deploy-via-git
-          requires:
-            - test
-          filters:
-            branches:
-              only: master circle-ci-project-setup
-
-
 jobs:
   test:
     working_directory: ~/adc-front
@@ -55,22 +39,9 @@ jobs:
           name: End to End Test
           command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
-  # deploy:
-  #   machine:
-  #       enabled: true
-  #   working_directory: ~/app-front
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Setup Heroku
-  #         command: bash .circleci/setup-heroku.sh # run a script to set up Heroku
-
-  #     - run:
-  #         command: |
-  #           git push heroku sequential-branch-filter:master
-  #           heroku run rake db:migrate
-  #           sleep 5 # sleep for 5 seconds to wait for dynos
-  #           heroku restart
-
-
-
+workflows:
+        version: 2
+        # the test workflow
+        test_workflow:
+            jobs:
+                - test
