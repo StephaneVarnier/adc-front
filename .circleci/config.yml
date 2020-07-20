@@ -31,9 +31,9 @@ jobs:
           paths:
             - node_modules
                   
-      - run:
-          name: Testing
-          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+      # - run:
+      #     name: Testing
+      #     command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
                
       - run:
           name: End to End Test
