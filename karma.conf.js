@@ -38,7 +38,8 @@ module.exports = function (config) {
           ],
           debug: true
       }
-  },
+    },
+    browsers: ['ChromeHeadless'],
     concurrency: Infinity,
     restartOnFileChange: true
   });
