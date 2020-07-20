@@ -1,12 +1,12 @@
 version: 2.1
 jobs:
   test:
+    working_directory: ~/adc-front
+ 
     docker:
       - image: 'circleci/node:12-browsers'
     steps:
-      
       - checkout
-      
       - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
