@@ -27,12 +27,12 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_DEBUG,
     autoWatch: true,
-    browsers: ['ChromeNoSandbox'],
+    browsers: ['Chrome'],
     customLaunchers: {
-        ChromeNoSandbox: {
-            base: 'Chrome',
-            flags: ['--no-sandbox']
-        }
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
+      }
     },
     singleRun: true,
     restartOnFileChange: true
