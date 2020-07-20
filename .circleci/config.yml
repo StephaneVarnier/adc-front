@@ -1,11 +1,11 @@
-version: 2
+version: 2.1
 
     jobs:
         # The test job
         test:
             working_directory: ~/project-name
             docker:
-                - image: circleci/node:10-browsers
+                - image: circleci/node:12.16-browsers
             steps:
                 # Checkout the code from the branch into the working_directory
                 - checkout
