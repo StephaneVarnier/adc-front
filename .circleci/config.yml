@@ -24,7 +24,7 @@ jobs:
 
       - run : 
           name: Environment Variable
-          command: ENV CHROME_BIN=/usr/bin/google-chrome
+          command: export CHROME_BIN=/usr/bin/google-chrome
                
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
