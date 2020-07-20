@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   test:
+    working_directory: ~/adc-front
     docker:
       - image: 'circleci/node:12-browsers'
 
@@ -36,5 +37,16 @@ jobs:
         name: End to End Test
         command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
-orbs:
-  node: circleci/node@3.0.1
+ workflows:
+        version: 2
+        # the test workflow
+        test_workflow:
+            jobs:
+                - deploy:
+                    filters:
+                        branches:
+                            only:
+                                - develop
+                                - staging
+                                - master
+
