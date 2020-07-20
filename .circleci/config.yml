@@ -23,8 +23,8 @@ jobs:
           command: npm install
 
       - run : 
-          name: Install Karma and Chrome-launcher
-          command: npm install karma karma-chrome-launcher
+          name: Environment Variable
+          command: ENV CHROME_BIN=/usr/bin/google-chrome
                
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
