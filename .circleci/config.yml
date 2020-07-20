@@ -22,9 +22,9 @@ jobs:
           name: Install local dependencies
           command: npm install
 
-        - run : 
+      - run : 
           name: Install Karma and Chrome-launcher
-          command: npm i karma karma-chrome-launche
+          command: npm install karma karma-chrome-launcher
                
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
