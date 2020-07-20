@@ -36,10 +36,10 @@ jobs:
           command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
                
       - run:
-        name: End to End Test
-        command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+          name: End to End Test
+          command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
- workflows:
+workflows:
         version: 2
         # the test workflow
         test_workflow:
