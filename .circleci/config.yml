@@ -5,13 +5,13 @@ orbs:
 
 workflows:
   version: 2
-        
-test_workflow:
-  jobs:
-    - test
-    - heroku/deploy-via-git:
-        requires:
-          - test
+      
+  test_workflow:
+    jobs:
+      - test
+      - heroku/deploy-via-git:
+          requires:
+            - test
 
 jobs:
   test:
