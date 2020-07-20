@@ -5,17 +5,16 @@ orbs:
   heroku: circleci/heroku@0.0.10
 
 workflows:
-  version: 2
-    # the test workflow
-    test_workflow:
-      jobs:
-        - test
-        - heroku/deploy-via-git
-            requires:
-              - test
-            filters:
-              branches:
-                only: master circle-ci-project-setup
+  version: 2   
+  test_workflow:
+    jobs:
+      - test
+      - heroku/deploy-via-git
+          requires:
+            - test
+          filters:
+            branches:
+              only: master circle-ci-project-setup
 
 
 jobs:
