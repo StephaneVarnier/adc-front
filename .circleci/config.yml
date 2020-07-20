@@ -4,37 +4,12 @@ jobs:
     docker:
       - image: circleci/node:10.16-browsers
         environment:
-          # Fix issue with selenium-server in containers.
-          # See http://github.com/SeleniumHQ/docker-selenium/issues/87
-          DBUS_SESSION_BUS_ADDRESS: /dev/null
           CHROME_REVISION: 652421
           CHROMEDRIVER_VERSION: 75.0.3770.90
-          # To find this revision number:
-          # 1. Find the exact chrome version you want: https://en.wikipedia.org/wiki/Google_Chrome_version_history
-          # 2. Put that version in this tool: https://omahaproxy.appspot.com/
-          # 3. Take the bumber from "Branch Base Position"
-          # 4. Look for the closest number to that revision in the snapshots: https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_x64/
-          # CHROME 74 - 638880
-          # CHROME 75 - 652421 
-          # CHROME 79 - 706915
+          
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: |
-            sudo apt-get update
-            sudo apt-get install python-pip openjdk-8-jdk tcpdump
-            # Install a specific version of Chrome (not latest)
-            sudo rm -rf /opt/google
-            sudo rm /usr/local/bin/chromedriver
-            wget -q -O chrome.zip https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/${CHROME_REVISION}/chrome-linux.zip 
-            unzip chrome.zip
-            rm chrome.zip
-            sudo ln -sf ${PWD}/chrome-linux/chrome /usr/bin/chromium 
-            sudo ln -sf /usr/bin/chromium /usr/bin/chromium-browser 
-            sudo groupadd -r chrome && sudo useradd -r -g chrome -G audio,video chrome 
-            sudo mkdir -p /home/chrome/reports 
-            sudo chown -R chrome:chrome /home/chrome 
+      
       - restore_cache:
           key: node_modules-{{ .Branch }}-{{ checksum "package-lock.json" }}
 
