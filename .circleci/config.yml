@@ -1,6 +1,8 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
+  heroku: circleci/heroku@0.0.10
+
 jobs:
   test:
     working_directory: ~/adc-front
@@ -45,4 +47,10 @@ workflows:
         test_workflow:
             jobs:
                 - test
+                - heroku/deploy-via-git
+                  requires:
+                    - test
+                  filters:
+                    branches:
+                      only: master circle-ci-project-setup
 
