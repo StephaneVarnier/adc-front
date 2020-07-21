@@ -12,15 +12,17 @@ ArchiDuChess (ADC) is an application allowing his users to consult :
 This is the Front-end part of the ArchiDuChess project
 was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
+It uses the Javascript open source library Chessboardjs : https://chessboardjs.com/index.html
+
 ### All the components used for this application 
 
-https://github.com/StephaneVarnier/adc-front
-https://github.com/StephaneVarnier/adc-online-games
-https://github.com/StephaneVarnier/adc-chess-stats
-https://github.com/StephaneVarnier/adc-users
-https://github.com/StephaneVarnier/adc-icc-api
-https://github.com/StephaneVarnier/adc-leaderboard
-https://github.com/StephaneVarnier/chessboardjs
+- https://github.com/StephaneVarnier/adc-front
+- https://github.com/StephaneVarnier/adc-online-games
+- https://github.com/StephaneVarnier/adc-chess-stats
+- https://github.com/StephaneVarnier/adc-users
+- https://github.com/StephaneVarnier/adc-icc-api
+- https://github.com/StephaneVarnier/adc-leaderboard
+- https://github.com/StephaneVarnier/chessboardjs
 
 
 ### Installation of adc-front 
@@ -28,6 +30,7 @@ https://github.com/StephaneVarnier/chessboardjs
 ```sh
 cd Archiduchess
 git clone https://github.com/StephaneVarnier/adc-front
+cd adc-front
 npm install
 ```
 
